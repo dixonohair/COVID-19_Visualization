@@ -1,0 +1,44 @@
+Team # 12 - Local COVID 
+ITSC 3155 Final Project Proposal
+ 
+Prepared by: Dixon OHair
+Date: 04/03/2021
+ 
+
+ 
+Table of Contents
+
+1    Introduction	2
+1.1 Product Vision	2
+1.3 Project Scope and Objectives	2
+2    Project Resources	2
+2.1   Group Members	2
+2.2 Data	2
+
+
+
+1   	Introduction
+The motivation for this project is to inform the public about Covid-19. The purpose behind this project is to give people who travel a sense of relief when they are out in a new place during this pandemic. 
+1.1 Product Vision
+1.2 Customer Description
+	The customers of this product are those who travel. They need to be informed about the current Covid-19 trends and restrictions.
+1.3 Project Scope and Objectives
+Travel alerts provides travelers with advisories and current information about a country from sports events to election violence. Unlike other products, Travel Alerts is entirely free to use. With the Covid-19 part of this product, all your travel concerns are solved. Our tracking takes data from county, city and state COVID reports and gives you the perfect recommendation of how safe an area is for travel. Our application also has information on current restrictions in each state alerting our users of any changes to mandates.
+Users will have the ability to input which place(s) they plan on traveling to, get information about the current status of the place of interest, get advice on things one should be careful about for the place of interest and what to do if one gets in trouble while in a foreign country. Covid-19: covid case tracker (county, city, state), restrictions and mandates for specific areas listed due to coronavirus, recommendation of how safe an area is based on covid data. 
+2   	Project Resources
+2.1  	Group Members
+Dixon Ohair
+Eduardo Gomez
+Nicholas Wofford
+Xay Richardson
+2.2 Data
+Travel Alerts:  https://catalog.data.gov/dataset/travel-alerts
+	This source explains the current worldwide travel advisories. It goes through each country and describes the short-term warnings that may be associated in those specific areas.
+
+Covid-19 Alerts: https://data.humdata.org/dataset/covid-19-global-travel-restrictions-and-airline-information
+	This source is like the previous, but is directed towards the coronavirus pandemic. 
+http://ghdx.healthdata.org/us-data
+	This source provides a health map visualization  
+
+
+
