@@ -1,7 +1,6 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.graph_objects as go
 from dash.dependencies import Input, Output
@@ -105,7 +104,7 @@ app.layout = html.Div(children=[
         'border-radius': 20
     }),
     html.Br(),
-    html.H1('Travel Advisory', style={
+    html.H1('Travel Advisory Information', style={
         'color': 'white',
         'margin-left': '90px',
         'font-size': '36px'
@@ -126,7 +125,13 @@ app.layout = html.Div(children=[
 
     # div for cumulative cases and deaths chart
     html.Div(dcc.Graph(id='cumulative cases and deaths')),
+    html.Br(),
+
+# div for vaccinations chart
+    html.Div(dcc.Graph(id='vaccinations')),
     html.Br()
+
+
 ]
 
     # style for main div containing all other components (the background)
@@ -178,6 +183,29 @@ def cumulative_cases_and_deaths_linechart(country_search):
 
     return {'data': linedata, 'layout': go.Layout(
         title={'text': 'Cumulative Covid Cases and Deaths in ' + country_search, 'font_color': 'white'},
+        paper_bgcolor='#404040',
+        plot_bgcolor='#404040',
+        yaxis={'color': 'white'},
+        xaxis={'color': 'white'},
+        legend={'font_color': 'white'},
+    )}
+
+
+@app.callback(Output('vaccinations', 'figure'), Input('country-search', 'value'))
+def vaccinations_linechart(country_search):
+    # filter data for selected country
+    filtered_vaccinations_df = vaccinations_df[vaccinations_df['location'] == country_search]
+    # create line chart
+    trace1 = go.Scatter(x=filtered_vaccinations_df['date'], y=filtered_vaccinations_df['total_vaccinations'],
+                        mode='lines',
+                        name='Total Vaccinations', line={'color': '#8cf5b4', 'width': 2})
+    trace2 = go.Scatter(x=filtered_vaccinations_df['date'], y=filtered_vaccinations_df['daily_vaccinations'],
+                        mode='lines',
+                        name='Daily Vaccinations', line={'color': '#e2ff68', 'width': 2})
+    linedata = [trace1, trace2]
+
+    return {'data': linedata, 'layout': go.Layout(
+        title={'text': 'Vaccinations in ' + country_search, 'font_color': 'white'},
         paper_bgcolor='#404040',
         plot_bgcolor='#404040',
         yaxis={'color': 'white'},
