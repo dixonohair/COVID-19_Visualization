@@ -70,6 +70,19 @@ app.layout = html.Div(children=[
         'margin-left': '50px'
     }),
 
+    html.H1('Instructions:', style={
+                'color': 'white',
+                'margin-left': '50px',
+                'font-size': 15
+    }),
+    html.P(['To use the map simply mouse over any country to see specific data.', html.Br(), ' If you want even more info you can '
+           'search the country name in the search box below the map'], style={
+                'color': 'white',
+                'margin-left': '50px',
+                'font-size': 12
+    }),
+    html.Br(),
+
     # div containing the world map
     html.Div(children=[
 
@@ -89,6 +102,8 @@ app.layout = html.Div(children=[
     }),
 
     html.Br(),
+
+
 
     html.H1('Covid Data by Country', style={
         'color': 'white',
