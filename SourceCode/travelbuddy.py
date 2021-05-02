@@ -3,13 +3,16 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import plotly.graph_objects as go
+import numpy as np
 from dash.dependencies import Input, Output
+
 
 # load datasets
 df = pd.read_csv('WHOcovidglobal.csv')
 cases_deaths_df = pd.read_csv('covidcases.csv')
 vaccinations_df = pd.read_csv('vaccinations.csv')
 travel_advisories_df = pd.read_csv('covid19TravelRestrictionsCountry.csv')
+
 
 # Initialise the app
 app = dash.Dash(__name__)
@@ -18,13 +21,14 @@ app = dash.Dash(__name__)
 fig = go.Figure(data=go.Choropleth(
     locations=df['Name'],
     locationmode='country names',
-    z=df['Cases - cumulative total'],
+    z=df['Cases - newly reported in last 7 days per 100000 population'],
     marker_line_color='white',
     marker_line_width=1,
-    colorscale='tealgrn',
-    colorbar=dict(title='Cumulative COVID-19 Cases'),
-    zmin=100000,
-    zmax=20000000
+    reversescale= True,
+    colorscale='RdYLGn',
+    colorbar=dict(title='Covid cases in the last 7 days per 100000'),
+    zmin=0,
+    zmax=600
 ))
 
 # the base map
